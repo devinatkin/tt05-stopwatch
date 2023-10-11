@@ -20,7 +20,7 @@ module debounce
   logic [$clog2(max_count):0] count; // this gives a more optimal implementation, than int version
                                      // logic elements = 34, registers = 24
   
-  always_ff @(posedge clk, negedge reset_n) // define the 3 flip flops
+  always_ff @(posedge clk) // define the 3 flip flops
     if(!reset_n) begin
       ff1 <= 0;
       ff2 <= 0;

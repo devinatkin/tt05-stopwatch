@@ -62,7 +62,7 @@ module doubleDabble(
             if (clkcnt == 0) begin
                 clkcnt <= clkcnt + 1;
                 ready <= 1; //Set a Ready Flag
-                bcd[15:0] = scratch[29:14]; //Set the BCD Output
+                bcd[15:0] <= scratch[29:14]; //Set the BCD Output
                 scratch[29:14] <= 0;
                 scratch[13:0] <= bin;
             end else begin
