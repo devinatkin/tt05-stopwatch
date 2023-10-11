@@ -15,7 +15,7 @@ project:
    - pwm_module.sv
    - double_dabble.sv
    - display_driver.sv
-   - deboucne.sv
+   - debounce.sv
    - debounce_wrapper.sv
    - clock_divider.sv
    - blinking_display.sv
