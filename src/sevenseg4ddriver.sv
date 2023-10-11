@@ -30,8 +30,8 @@ module sevenseg4ddriver(
     ) clk_reducer (
         .clk(clk),
         .rst_n(rst_n),
-        .duty(5000), 
-        .max_value(10000),
+        .duty(14'd5000), 
+        .max_value(14'd10000),
         .pwm_out(clk_reduced)
     );
 
