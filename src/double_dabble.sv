@@ -47,31 +47,31 @@ module doubleDabble(
         end else if(clk) begin
             //Check If Ready
             if(scratch[29:26] >= 5) begin //Add to any bcd which is >= 5
-                    scratch[29:26] = scratch[29:26] + 3;
+                    scratch[29:26] <= scratch[29:26] + 3;
             end
             if(scratch[25:22] >= 5) begin
-                    scratch[25:22] = scratch[25:22] + 3;
+                    scratch[25:22] <= scratch[25:22] + 3;
             end
             if(scratch[21:18] >= 5) begin
-                    scratch[21:18]  = scratch[21:18] + 3;
+                    scratch[21:18]  <= scratch[21:18] + 3;
             end
             if(scratch[17:14] >= 5) begin
-                    scratch[17:14]  = scratch[17:14] + 3;
+                    scratch[17:14]  <= scratch[17:14] + 3;
             end
-            scratch[29:0] = {scratch[28:0], 1'b0}; //Shift Left
+            scratch[29:0] <= {scratch[28:0], 1'b0}; //Shift Left
             if (clkcnt == 0) begin
-                clkcnt = clkcnt + 1;
-                ready = 1; //Set a Ready Flag
+                clkcnt <= clkcnt + 1;
+                ready <= 1; //Set a Ready Flag
                 bcd[15:0] = scratch[29:14]; //Set the BCD Output
-                scratch[29:14] = 0;
-                scratch[13:0] = bin;
+                scratch[29:14] <= 0;
+                scratch[13:0] <= bin;
             end else begin
-                clkcnt = clkcnt + 1;
-                ready = 0; //Not Ready
+                clkcnt <= clkcnt + 1;
+                ready <= 0; //Not Ready
                 
 
                 if(clkcnt == 14) begin
-                    clkcnt = 0;
+                    clkcnt <= 0;
                 end
             end
             

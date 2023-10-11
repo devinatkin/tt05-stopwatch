@@ -43,7 +43,7 @@ module debounce
     else if(sclr) // clears count if xor is high (xor inputs are different, meaning button input is not stable so reset the count)
         count <= 0;
     else if (!ena) // if count is less than the stable time, then keep counting
-        count = count + 1;
+        count <= count + 1;
   
   assign ena = (count > max_count) ? 1 : 0; // comparator, if the max_count is reached by count then 
                                             // the button input has been stable for the bounce time
