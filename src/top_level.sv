@@ -76,11 +76,14 @@ module top(
         .blink(blink)                   // Blink signal
     );
 
-    debounce_wrapper debounce_wrapper ( // Debounce wrapper instance (Debounces the buttons and software reset switch)
-        .clk(clk),                      // 100 MHz clock
-        .rst_n(rst_n),                  // Inverted reset signal
-        .buttons({start_btn, stop_btn, softrst_sw, inc_min_btn, inc_sec_btn}),  // Button inputs
-        .results({start, stop, softrst, inc_min, inc_sec})                      // Debounced button outputs
-    );
+    // Debounce module instantiation removed due to size constraints
+    // Below are the assignments that tie the inputs to the outputs directly
+
+    assign start = start_btn;       // Directly tying the 'start_btn' input to the 'start' output
+    assign stop = stop_btn;         // Directly tying the 'stop_btn' input to the 'stop' output
+    assign softrst = softrst_sw;    // Directly tying the 'softrst_sw' input to the 'softrst' output
+    assign inc_min = inc_min_btn;   // Directly tying the 'inc_min_btn' input to the 'inc_min' output
+    assign inc_sec = inc_sec_btn;   // Directly tying the 'inc_sec_btn' input to the 'inc_sec' output
+
 
 endmodule

@@ -37,7 +37,7 @@ module debounce
   
   assign sclr = ff1 ^ ff2; // XOR
   
-  always_ff @(posedge clk, negedge reset_n)
+  always_ff @(posedge clk)
     if(!reset_n)
       count <= 0;
     else if(sclr) // clears count if xor is high (xor inputs are different, meaning button input is not stable so reset the count)
