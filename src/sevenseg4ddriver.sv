@@ -1,7 +1,7 @@
 `timescale 1ns / 1ns
 
 module sevenseg4ddriver(
-    input wire clk, //100Mhz System Clock
+    input wire clk, //25Mhz System Clock
     input wire rst_n,
     input wire [6:0] digit0_segments,
     input wire [6:0] digit1_segments,
@@ -26,12 +26,12 @@ module sevenseg4ddriver(
     );
 
     pwm_module #(
-        .bit_width(14) // Wide bit width setup
+        .bit_width(12) // Wide bit width setup
     ) clk_reducer (
         .clk(clk),
         .rst_n(rst_n),
-        .duty(14'd5000), 
-        .max_value(14'd10000),
+        .duty(12'd1250), 
+        .max_value(12'd2500),
         .pwm_out(clk_reduced)
     );
 

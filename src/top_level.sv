@@ -5,8 +5,9 @@
 // Hint * Reuse as much existing code as possible. The timer module was written with the stop watch in mind.
 
 module top(
-        input wire clk,                 // 100 MHz clock
-        input wire rst,                 // Reset button (Tied to Center Button)
+        input wire clk,                 // 25 MHz clock
+        input wire rst_n,                 // Reset button (Tied to Center Button)
+        input logic en,
         input wire start_btn,           // Start button (Tied to Up Button)
         input wire stop_btn,            // Stop button (Tied to left Button)
         input wire softrst_sw,          // Software reset switch (Tied to SW1)         
@@ -33,13 +34,9 @@ module top(
 
     wire [3:0] anode_raw;               // 4-bit anode output wire (anode values before the blinking logic)
     
-
-    logic rst_n;                        // Inverted reset signal
-    assign rst_n = !rst;                // Invert the reset signal
-
     // Instantiate the clock divider
     clock_divider clock_divider_inst(   // Clock divider instance (Generates 1 Hz and 1 kHz clocks)
-        .clk_100MHz(clk),               // 100 MHz clock input
+        .clk_25MHz(clk),               // 100 MHz clock input
         .rst_n(rst_n),                  // Inverted reset signal
         .clk_1Hz(clk_1Hz),              // 1 Hz clock output
         .clk_1kHz(clk_1kHz)             // 1 kHz clock output
@@ -67,7 +64,7 @@ module top(
         .clk(clk),                      // 100 MHz clock
         .clk1k(clk_1kHz),               // 1 kHz clock (Used to count ms)
         .rst_n(rst_n),                  // Inverted reset signal
-        .en(1'b1),                      // Enable signal (Always enabled, but could be used to disable the timer)
+        .en(en),                      // Enable signal (Always enabled, but could be used to disable the timer)
         .start(start),                  // Start signal
         .stop(stop),                    // Stop signal
         .reset(softrst),                // Reset signal

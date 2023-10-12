@@ -13,7 +13,8 @@ module tt_um_devinatkin_stopwatch
     // Instantiate the top module
     top uut (
         .clk(clk),
-        .rst(!rst_n),
+        .rst_n(rst_n),
+        .en(ena),
         .start_btn(ui_in[0]),
         .stop_btn(ui_in[1]),
         .softrst_sw(ui_in[2]),

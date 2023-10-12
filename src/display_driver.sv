@@ -2,7 +2,7 @@
 
 
 module display_driver(
-    input wire clk,             //100Mhz System Clock
+    input wire clk,             //25Mhz System Clock
     input wire rst_n,           //Active Low Reset
     input wire [5:0] minutes,   //6-bit input for minutes
     input wire [5:0] seconds,   //6-bit input for seconds
