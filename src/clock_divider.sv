@@ -9,8 +9,8 @@ module clock_divider
 );
 
     // Counters for 1Hz and 1kHz clock divisions
-    logic [25:0] counter_1Hz = 0;
-    logic [15:0] counter_1kHz = 0;
+    logic [23:0] counter_1Hz = 0;
+    logic [13:0] counter_1kHz = 0;
 
     // Clock signals for 1Hz and 1kHz
     logic clk_1Hz_reg = 0;

@@ -5,34 +5,34 @@
 // Hint * Reuse as much existing code as possible. The timer module was written with the stop watch in mind.
 
 module top(
-        input wire clk,                 // 25 MHz clock
+        input logic clk,                 // 25 MHz clock
         input wire rst_n,                 // Reset button (Tied to Center Button)
         input logic en,
-        input wire start_btn,           // Start button (Tied to Up Button)
-        input wire stop_btn,            // Stop button (Tied to left Button)
-        input wire softrst_sw,          // Software reset switch (Tied to SW1)         
-        input wire inc_min_btn,         // Increment minutes button (Tied to down Button)
-        input wire inc_sec_btn,         // Increment seconds button (Tied to right Button)
-        input wire inc_sw,              // Increment switch (Tied to SW2, Determines if buttons increment or decrement the timer)
-        output wire [6:0] seg,          // 7-segment display output wire (Tied to the 7-segment display, active low)
-        output wire [3:0] an            // 4-bit anode output wire (Tied to the 7-segment display, active low)
+        input logic start_btn,           // Start button (Tied to Up Button)
+        input logic stop_btn,            // Stop button (Tied to left Button)
+        input logic softrst_sw,          // Software reset switch (Tied to SW1)         
+        input logic inc_min_btn,         // Increment minutes button (Tied to down Button)
+        input logic inc_sec_btn,         // Increment seconds button (Tied to right Button)
+        input logic inc_sw,              // Increment switch (Tied to SW2, Determines if buttons increment or decrement the timer)
+        output logic [6:0] seg,          // 7-segment display output logic (Tied to the 7-segment display, active low)
+        output logic [3:0] an            // 4-bit anode output logic (Tied to the 7-segment display, active low)
     );
 
-    wire clk_1Hz;                       // 1 Hz clock
-    wire clk_1kHz;                      // 1 kHz clock
+    logic clk_1Hz;                       // 1 Hz clock
+    logic clk_1kHz;                      // 1 kHz clock
     
-    wire blink;                         // Blink signal for blinking the 7-segment display
+    logic blink;                         // Blink signal for blinking the 7-segment display
 
-    wire [5:0] minutes;                 // Minutes counter
-    wire [5:0] seconds;                 // Seconds counter
+    logic [5:0] minutes;                 // Minutes counter
+    logic [5:0] seconds;                 // Seconds counter
 
-    wire start;                         // Start signal
-    wire stop;                          // Stop signal
-    wire softrst;                       // Soft reset signal
-    wire inc_min;                       // Increment minutes signal
-    wire inc_sec;                       // Increment seconds signal
+    logic start;                         // Start signal
+    logic stop;                          // Stop signal
+    logic softrst;                       // Soft reset signal
+    logic inc_min;                       // Increment minutes signal
+    logic inc_sec;                       // Increment seconds signal
 
-    wire [3:0] anode_raw;               // 4-bit anode output wire (anode values before the blinking logic)
+    logic [3:0] anode_raw;               // 4-bit anode output wire (anode values before the blinking logic)
     
     // Instantiate the clock divider
     clock_divider clock_divider_inst(   // Clock divider instance (Generates 1 Hz and 1 kHz clocks)
