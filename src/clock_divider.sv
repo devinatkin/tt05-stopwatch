@@ -17,7 +17,7 @@ module clock_divider
     logic clk_1kHz_reg = 0;
 
     // Clock division for 1Hz
-    always_ff @(posedge clk_100MHz) begin
+    always_ff @(posedge clk_25MHz) begin
         if (!rst_n) begin                                       
             counter_1Hz <= 0;
             clk_1Hz_reg <= 0;
@@ -30,7 +30,7 @@ module clock_divider
     end
 
     // Clock division for 1kHz
-    always_ff @(posedge clk_100MHz) begin
+    always_ff @(posedge clk_25MHz) begin
         if (!rst_n) begin
             counter_1kHz <= 0;
             clk_1kHz_reg <= 0;
