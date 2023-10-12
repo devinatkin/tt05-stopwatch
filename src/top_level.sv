@@ -6,7 +6,7 @@
 
 module top(
         input logic clk,                 // 25 MHz clock
-        input wire rst_n,                 // Reset button (Tied to Center Button)
+        input logic rst_n,                 // Reset button (Tied to Center Button)
         input logic en,
         input logic start_btn,           // Start button (Tied to Up Button)
         input logic stop_btn,            // Stop button (Tied to left Button)
@@ -32,7 +32,7 @@ module top(
     logic inc_min;                       // Increment minutes signal
     logic inc_sec;                       // Increment seconds signal
 
-    logic [3:0] anode_raw;               // 4-bit anode output wire (anode values before the blinking logic)
+    logic [3:0] anode_raw;               // 4-bit anode output logic (anode values before the blinking logic)
     
     // Instantiate the clock divider
     clock_divider clock_divider_inst(   // Clock divider instance (Generates 1 Hz and 1 kHz clocks)
@@ -43,12 +43,12 @@ module top(
     );
 
     blinking_display blink_disp (       // Blinking display instance (Blinks the 7-segment display)
-        .anode_in(anode_raw),           // 4-bit anode input wire (anode values before the blinking logic)
+        .anode_in(anode_raw),           // 4-bit anode input logic (anode values before the blinking logic)
         .clk(clk),                      // 100 MHz clock
         .rst_n(rst_n),                  // Inverted reset signal
         .blink(blink),                  // Blink signal
         .clk_1hz(clk_1Hz),              // 1 Hz clock
-        .anode_out(an)                  // 4-bit anode output wire (anode values after the blinking logic)
+        .anode_out(an)                  // 4-bit anode output logic (anode values after the blinking logic)
     );
 
     display_driver display_driver_inst( // Display driver instance (Converts the minutes and seconds to 7-segment display values)
@@ -56,8 +56,8 @@ module top(
         .rst_n(rst_n),                  // Inverted reset signal
         .minutes(minutes),              // Minutes counter
         .seconds(seconds),              // Seconds counter
-        .seg(seg),                      // 7-segment display output wire (active low)
-        .an(anode_raw)                  // 4-bit anode output wire (anode values before the blinking logic)
+        .seg(seg),                      // 7-segment display output logic (active low)
+        .an(anode_raw)                  // 4-bit anode output logic (anode values before the blinking logic)
     );
 
     timer timer_module (                // Timer module instance (Counts the minutes and seconds)

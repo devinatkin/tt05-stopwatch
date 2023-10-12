@@ -12,8 +12,8 @@ module tb_top();
     logic inc_sec_btn;
     logic mode_sw;
     logic sw_inc;
-    wire [6:0] seg;
-    wire [3:0] an;
+    logic [6:0] seg;
+    logic [3:0] an;
 
     //Constants
     time stable_time_tb = 70ms;

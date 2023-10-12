@@ -15,9 +15,9 @@ module tb_timer;
   logic reset;
   logic inc_min;
   logic inc_sec;
-  wire [5:0] minutes;
-  wire [5:0] seconds;
-  wire blink;
+  logic [5:0] minutes;
+  logic [5:0] seconds;
+  logic blink;
 
   // Instantiate the device under test (DUT)
   timer uut (

@@ -12,7 +12,7 @@ module tb_pwm_module;
   logic [bit_width-1:0] duty = 1;                               // Duty cycle input
 
   // Outputs
-  wire pwm_out;                                             // PWM output
+  logic pwm_out;                                             // PWM output
 
     // Variables
   time previous_duty_out_rise=0;                              // Time of the previous rising edge of the duty cycle output

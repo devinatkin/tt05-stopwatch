@@ -7,7 +7,7 @@ module tb_blinking_display;
   logic rst_n;          // Active-low reset
   logic blink;          // Blink control bit
   logic clk_1hz;        // 1Hz clock
-  wire [3:0] anode_out; // 4-bit anode output
+  logic [3:0] anode_out; // 4-bit anode output
 
   // Instantiate the DUT (Device Under Test)
   blinking_display uut (

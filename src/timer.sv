@@ -1,16 +1,16 @@
 `timescale 1ns / 1ps
 
 module timer (
-  input wire clk,      // Clock input 100Mhz
-  input wire clk1k,    // Clock input 1Khz
-  input wire rst_n,    // Active low asynchronous reset
-  input wire en,       // Enable the timer
-  input wire start,    // Start the timer
-  input wire stop,     // Stop the timer
-  input wire reset,    // Reset the timer
-  input wire inc_min,  // Set minutes
-  input wire inc_sec,  // Set seconds
-  input wire inc,
+  input logic clk,      // Clock input 100Mhz
+  input logic clk1k,    // Clock input 1Khz
+  input logic rst_n,    // Active low asynchronous reset
+  input logic en,       // Enable the timer
+  input logic start,    // Start the timer
+  input logic stop,     // Stop the timer
+  input logic reset,    // Reset the timer
+  input logic inc_min,  // Set minutes
+  input logic inc_sec,  // Set seconds
+  input logic inc,
   output logic [5:0] minutes,  // Minutes
   output logic [5:0] seconds,  // Seconds
   output logic blink          // Blink output
@@ -18,9 +18,9 @@ module timer (
 
   logic running;  // Flag to indicate if the timer is running
   logic set_time; // Flag to indicate if the time is set
-  wire [9:0] time_ms;
-  wire [5:0] time_sec;
-  wire [5:0] time_min;
+  logic [9:0] time_ms;
+  logic [5:0] time_sec;
+  logic [5:0] time_min;
 
   // Assign output values
   assign minutes = time_min;

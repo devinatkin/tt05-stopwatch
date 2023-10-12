@@ -11,8 +11,8 @@ module tb_display_driver();
     logic rst_n;            // Active low reset
     logic [5:0] minutes;    // 6-bit minutes value
     logic [5:0] seconds;    // 6-bit seconds value
-    wire [6:0] seg;         // 7-bit segment value
-    wire [3:0] an;          // 4-bit anode value
+    logic [6:0] seg;         // 7-bit segment value
+    logic [3:0] an;          // 4-bit anode value
 
     logic [31:0] displayHold;   // 32-bit value to hold the display for a certain amount of time
 

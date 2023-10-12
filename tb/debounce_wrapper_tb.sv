@@ -16,7 +16,7 @@ module tb_debounce_wrapper;
     logic reset_n;          // Reset
 
     // Outputs
-    wire [4:0] results;     // For multiple debounced results
+    logic [4:0] results;     // For multiple debounced results
 
     logic error = 0;        // Error flag
     StateType Test_State;   // Test State       

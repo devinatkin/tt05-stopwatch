@@ -5,8 +5,8 @@
 // Both versions work fine.
  
 module debounce
- #(parameter clk_freq    = 50_000_000, // system clock frequency in Hz (e.g. 50 MHz for DE10-Lite)       
-             stable_time = 20)         // time button must remain stable in ms (e.g. 20 ms for the bounce time)
+ #(parameter clk_freq    = 25_000_000, // system clock frequency in Hz (e.g. 25 MHz for DE10-Lite)       
+             stable_time = 10)         // time button must remain stable in ms (e.g. 20 ms for the bounce time)
   (input  logic clk,     // input clock                   
                 reset_n, // asynchronous active low reset 
                 button,  // input signal to be debounced  
@@ -49,43 +49,3 @@ module debounce
                                             // the button input has been stable for the bounce time
 endmodule
            
-/*
-// Adapted to SystemVerilog from https://forum.digikey.com/t/debounce-logic-circuit-vhdl/12573
-// Verilog version https://forum.digikey.com/t/debounce-logic-circuit-verilog/13196
-// This version is a translation of the VHDL code to SystemVerilog.
-// logic elements = 46, registers = 35
-
-module debounce
- #(parameter clk_freq    = 50_000_000, // system clock frequency in Hz (e.g. 50 MHz for DE10-Lite)       
-             stable_time = 20)         // time button must remain stable in ms (e.g. 20 ms for the bounce time)
-  (input  logic clk,     // input clock                   
-                reset_n, // asynchronous active low reset 
-                button,  // input signal to be debounced  
-   output logic result); // debounced signal              
-
-  logic [1:0] flipflops;
-  logic       counter_set;
-  int         count;
-  
-  assign counter_set = flipflops[0] ^ flipflops[1]; // XOR
-
-  always_ff @(posedge clk, negedge reset_n) begin
-    if(!reset_n) begin
-      flipflops <= 0;
-      result    <= 0;
-    end
-    else begin
-      flipflops[0] <= button;
-      flipflops[1] <= flipflops[0]; 
-      if(counter_set)
-        count <= 0;
-      else if(count < clk_freq*stable_time/1000)
-        count <= count + 1;
-      else
-        result <= flipflops[1];
-    end
-  end  
-
-endmodule
-*/
-

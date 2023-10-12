@@ -1,11 +1,11 @@
 // debounce_wrapper.v
-// This module instantiates 5 debounce modules and connects them to the buttons and results wires.
+// This module instantiates 5 debounce modules and connects them to the buttons and results logics.
 
 module debounce_wrapper(
-    input wire clk,                 // The clock signal
-    input wire rst_n,               // The reset signal
-    input wire [4:0] buttons,       // A 5-bit wide wire to hold the states of 5 buttons
-    output logic [4:0] results      // A 5-bit wide wire to hold the debounced results
+    input logic clk,                 // The clock signal
+    input logic rst_n,               // The reset signal
+    input logic [4:0] buttons,       // A 5-bit wide logic to hold the states of 5 buttons
+    output logic [4:0] results      // A 5-bit wide logic to hold the debounced results
 );
 
 
@@ -22,7 +22,7 @@ module debounce_wrapper(
         end
     endgenerate
 
-    // You could also instantiate the debounce modules individually and connect them to the buttons and results wires like this:
+    // You could also instantiate the debounce modules individually and connect them to the buttons and results logics like this:
     // debounce #(50000000,10) generic_debounce_0 (.clk(clk), .button(buttons[0]), .reset_n(rst_n), .result(results[0]));
     // debounce #(50000000,10) generic_debounce_1 (.clk(clk), .button(buttons[1]), .reset_n(rst_n), .result(results[1]));
     // debounce #(50000000,10) generic_debounce_2 (.clk(clk), .button(buttons[2]), .reset_n(rst_n), .result(results[2]));

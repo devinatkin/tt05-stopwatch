@@ -30,9 +30,9 @@ module tb_time_counter;
   logic en;
   logic inc_sec;
   logic inc_min;
-  wire [9:0] time_ms;
-  wire [5:0] time_sec;
-  wire [5:0] time_min;
+  logic [9:0] time_ms;
+  logic [5:0] time_sec;
+  logic [5:0] time_min;
 
   // Instantiate the time_counter module
   time_counter uut (

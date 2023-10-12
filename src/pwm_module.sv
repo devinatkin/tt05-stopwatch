@@ -4,8 +4,8 @@
 module pwm_module
 #(parameter bit_width = 8)
 (
-input wire clk,                         // 1-bit input: clock
-input wire rst_n,                       // 1-bit input: reset
+input logic clk,                         // 1-bit input: clock
+input logic rst_n,                       // 1-bit input: reset
 input [bit_width-1:0] duty,              // bitwidth-bit input: duty cycle
 input [bit_width-1:0] max_value,         // bitwidth-bit input: maximum value
 output logic pwm_out                     // 1-bit output: pwm output

@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 
 module blinking_display (
-    input wire [3:0] anode_in,  // 4-bit anode input
-    input wire clk,             // System clock
-    input wire rst_n,           // Active-low reset
-    input wire blink,           // Blink control bit
-    input wire clk_1hz,         // 1Hz clock
+    input logic [3:0] anode_in,  // 4-bit anode input
+    input logic clk,             // System clock
+    input logic rst_n,           // Active-low reset
+    input logic blink,           // Blink control bit
+    input logic clk_1hz,         // 1Hz clock
     output logic [3:0] anode_out  // 4-bit anode output
 );
 

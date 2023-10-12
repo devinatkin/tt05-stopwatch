@@ -7,71 +7,71 @@ It's only needed for Wokwi designs
 `define default_netname none
 
 module buffer_cell (
-    input wire in,
-    output wire out
+    input logic in,
+    output logic out
     );
     assign out = in;
 endmodule
 
 module and_cell (
-    input wire a,
-    input wire b,
-    output wire out
+    input logic a,
+    input logic b,
+    output logic out
     );
 
     assign out = a & b;
 endmodule
 
 module or_cell (
-    input wire a,
-    input wire b,
-    output wire out
+    input logic a,
+    input logic b,
+    output logic out
     );
 
     assign out = a | b;
 endmodule
 
 module xor_cell (
-    input wire a,
-    input wire b,
-    output wire out
+    input logic a,
+    input logic b,
+    output logic out
     );
 
     assign out = a ^ b;
 endmodule
 
 module nand_cell (
-    input wire a,
-    input wire b,
-    output wire out
+    input logic a,
+    input logic b,
+    output logic out
     );
 
     assign out = !(a&b);
 endmodule
 
 module not_cell (
-    input wire in,
-    output wire out
+    input logic in,
+    output logic out
     );
 
     assign out = !in;
 endmodule
 
 module mux_cell (
-    input wire a,
-    input wire b,
-    input wire sel,
-    output wire out
+    input logic a,
+    input logic b,
+    input logic sel,
+    output logic out
     );
 
     assign out = sel ? b : a;
 endmodule
 
 module dff_cell (
-    input wire clk,
-    input wire d,
+    input logic clk,
+    input logic d,
     output reg q,
-    output wire notq
+    output logic notq
     );
 
     assign notq = !q;
@@ -81,12 +81,12 @@ module dff_cell (
 endmodule
 
 module dffsr_cell (
-    input wire clk,
-    input wire d,
-    input wire s,
-    input wire r,
+    input logic clk,
+    input logic d,
+    input logic s,
+    input logic r,
     output reg q,
-    output wire notq
+    output logic notq
     );
 
     assign notq = !q;

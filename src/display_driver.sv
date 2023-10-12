@@ -2,23 +2,23 @@
 
 
 module display_driver(
-    input wire clk,             //25Mhz System Clock
-    input wire rst_n,           //Active Low Reset
-    input wire [5:0] minutes,   //6-bit input for minutes
-    input wire [5:0] seconds,   //6-bit input for seconds
+    input logic clk,             //25Mhz System Clock
+    input logic rst_n,           //Active Low Reset
+    input logic [5:0] minutes,   //6-bit input for minutes
+    input logic [5:0] seconds,   //6-bit input for seconds
     output logic [6:0] seg,     //Segment Outputs
     output logic [3:0] an       //Common Anode Outputs (0 = on, 1 = off)
     );
 
-    wire [6:0] digit0, digit1, digit2, digit3;  //Segment Outputs for each digit
+    logic [6:0] digit0, digit1, digit2, digit3;  //Segment Outputs for each digit
     logic [3:0] bcd0, bcd1, bcd2, bcd3;         //BCD Outputs for each digit
-    wire [15:0] seconds_bcd;                    //BCD Output for seconds (16-bits from double dabble, only 8 used)
-    wire [15:0] minutes_bcd;                    //BCD Output for minutes (16-bits from double dabble, only 8 used)
-    wire seconds_ready;                         //Ready signal from double dabble for seconds
-    wire minutes_ready;                         //Ready signal from double dabble for minutes
-    wire [3:0] out_sel;                         //Common Anode Outputs (0 = on, 1 = off)
+    logic [15:0] seconds_bcd;                    //BCD Output for seconds (16-bits from double dabble, only 8 used)
+    logic [15:0] minutes_bcd;                    //BCD Output for minutes (16-bits from double dabble, only 8 used)
+    logic seconds_ready;                         //Ready signal from double dabble for seconds
+    logic minutes_ready;                         //Ready signal from double dabble for minutes
+    logic [3:0] out_sel;                         //Common Anode Outputs (0 = on, 1 = off)
 
-    wire [3:0] assigned_value;                  //Value to be assigned to out_sel
+    logic [3:0] assigned_value;                  //Value to be assigned to out_sel
     
     assign an = ~out_sel;                       //Common Anode Outputs (0 = on, 1 = off) (Inverted from out_sel)
 

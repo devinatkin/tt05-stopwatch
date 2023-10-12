@@ -1,13 +1,13 @@
 `timescale 1ns / 1ps
 
 module time_counter (
-  input wire clk_1khz,       // 1 kHz Clock for millisecond counting
-  input wire clk_high_speed, // High-speed clock for general operation
-  input wire rst_n,          // Asynchronous reset (active low)
-  input wire up_down,        // Up/Down control: 1 for counting up, 0 for counting down
-  input wire en,             // Enable signal
-  input wire inc_sec,        // Increment/Decrement 1 second
-  input wire inc_min,        // Increment/Decrement 1 minute
+  input logic clk_1khz,       // 1 kHz Clock for millisecond counting
+  input logic clk_high_speed, // High-speed clock for general operation
+  input logic rst_n,          // Asynchronous reset (active low)
+  input logic up_down,        // Up/Down control: 1 for counting up, 0 for counting down
+  input logic en,             // Enable signal
+  input logic inc_sec,        // Increment/Decrement 1 second
+  input logic inc_min,        // Increment/Decrement 1 minute
   output logic [9:0] time_ms, // Time in milliseconds (Max 1 second, will rollover to 0 after 1 second)
   output logic [5:0] time_sec, // Time in seconds (Max 63 seconds, will rollover to 0 after 60 seconds)
   output logic [5:0] time_min  // Time in minutes (Max 63 minutes, will rollover to 0 after 60 minutes)
@@ -20,7 +20,7 @@ logic inc_min_prev = 0;    // Store previous value of inc_min for edge detection
 always @(posedge clk_high_speed) begin
     if (~rst_n) begin
       // Asynchronously reset the time counters and previous value registers
-      time_ms <= 32'h0;
+      time_ms <= 10'h0;
       time_sec <= 6'h0;
       time_min <= 6'h0;
       clk_1khz_prev <= 0;

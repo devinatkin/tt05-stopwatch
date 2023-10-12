@@ -19,7 +19,7 @@ reg button;
 reg reset_n;
 
 // Outputs
-wire result;
+logic result;
 
 reg error = 0;
 

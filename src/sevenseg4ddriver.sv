@@ -1,12 +1,12 @@
 `timescale 1ns / 1ns
 
 module sevenseg4ddriver(
-    input wire clk, //25Mhz System Clock
-    input wire rst_n,
-    input wire [6:0] digit0_segments,
-    input wire [6:0] digit1_segments,
-    input wire [6:0] digit2_segments,
-    input wire [6:0] digit3_segments,
+    input logic clk, //25Mhz System Clock
+    input logic rst_n,
+    input logic [6:0] digit0_segments,
+    input logic [6:0] digit1_segments,
+    input logic [6:0] digit2_segments,
+    input logic [6:0] digit3_segments,
     output logic [6:0] segments,
     output logic [3:0] anodes
     );

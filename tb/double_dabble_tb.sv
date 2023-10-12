@@ -4,7 +4,7 @@
 module double_dabble_tb();
 logic clk;
 logic rst;
-wire ready;
+logic ready;
 logic[13:0] bin = 14'b00_0000_0000_0000;
 logic [15:0] clkcnt = 0;
 logic [15:0] bcd;
