@@ -21,7 +21,7 @@ module tb_bcd_to_binary;
         end
 
         // Test completed
-        $stop;
+        $finish;
     end
 
     // Additional logging for changes in bin

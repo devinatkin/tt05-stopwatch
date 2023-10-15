@@ -25,17 +25,19 @@ module tb_top();
     // Clock Generation
     always #5 clk = ~clk;  // 10ns clock period (for a 100MHz clock)
 
+               
+
     // Instantiate the top module
     top uut (
-        .clk(clk),
-        .rst(rst),
+        .clk(clk),                      // 25 MHz clock
+        .rst_n(rst),                    // Reset button (Tied to Center Button)
+        .en(1'b1),                      // Enable signal
         .start_btn(start_btn),
         .stop_btn(stop_btn),
-        .softrst_btn(softrst_btn),
+        .softrst_sw(softrst_btn),
         .inc_min_btn(inc_min_btn),
         .inc_sec_btn(inc_sec_btn),
         .inc_sw(sw_inc),
-        .mode_sw(mode_sw),
         .seg(seg),
         .an(an)
     );
@@ -53,8 +55,8 @@ module tb_top();
         mode_sw = 0;
         sw_inc = 0;
         // Reset pulse
-        rst = 1;
-        #10000 rst = 0;
+        rst = 0;
+        #10000 rst = 1;
 
         // Test different modes
         mode_sw = 1;

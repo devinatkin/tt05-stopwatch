@@ -15,13 +15,13 @@ module tb_clock_divider;
     time period_1Hz;
     time period_1kHz;
 
-    const time EXPECTED_PERIOD_1KHZ = 1.0e9;
-    const time EXPECTED_PERIOD_1HZ = 1.0e12;
+    time EXPECTED_PERIOD_1KHZ = 1.0e9;
+    time EXPECTED_PERIOD_1HZ = 1.0e12;
     real tolerance = 1.0e-9; // Adjust as per your requirements
 
     // Instantiate the DUT (Device Under Test)
     clock_divider uut (
-        .clk_100MHz(clk_100MHz),
+        .clk_25MHz(clk_100MHz),
         .rst_n(rst_n),
         .clk_1Hz(clk_1Hz),
         .clk_1kHz(clk_1kHz)

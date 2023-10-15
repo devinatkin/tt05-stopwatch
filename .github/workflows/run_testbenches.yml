@@ -1,0 +1,27 @@
+name: Run Makefile
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup environment
+      run: |
+        sudo apt-get update
+
+    - name: Install Icarus Verilog
+      run: |
+        sudo apt-get install -y iverilog
+
+    - name: Run Testbenches
+      run: |
+        make test
