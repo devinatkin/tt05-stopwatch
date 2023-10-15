@@ -9,7 +9,15 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [
+          "tb_bcd_binary", "tb_blinking_display", "tb_double_dabble",
+          "tb_time_counter", "tb_timer", "tb_top_level", "tb_sevenseg4ddriver",
+          "tb_segment_mux", "tb_pwm_module", "tb_display_driver", "tb_clock_divider",
+          "tb_debounce", "tb_debounce_wrapper"
+        ]
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -22,9 +30,9 @@ jobs:
       run: |
         sudo apt-get install -y iverilog
 
-    - name: Run Testbenches
+    - name: Run individual testbenches
       run: |
-        make all
+        make ${{ matrix.target }}
 
     - name: Cleanup
       run: |
