@@ -1,26 +1,15 @@
-![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/wokwi_test/badge.svg)
-
+![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/wokwi_test/badge.svg) 
+[![Run Makefile](https://github.com/devinatkin/tt05-stopwatch/actions/workflows/run_testbenches.yml/badge.svg)](https://github.com/devinatkin/tt05-stopwatch/actions/workflows/run_testbenches.yml)
 # What is Tiny Tapeout?
 
 TinyTapeout is an educational project that aims to make it easier and cheaper than ever to get your digital designs manufactured on a real chip.
 
 To learn more and get started, visit https://tinytapeout.com.
 
-## Wokwi Projects
+## Lab 3 
 
-Edit the [info.yaml](info.yaml) and change the wokwi_id to the ID of your Wokwi project. You can find the ID in the URL of your project, it's the big number after `wokwi.com/projects/`.
+This project is slightly modified code from the ENEL 453 Lab 3 provided code. It will act as a timer, setting the time, then counting down to zero. When the time hits zero the leds will flash until the output is reset. 
 
-The GitHub action will automatically fetch the digital netlist from Wokwi and build the ASIC files.
-
-## Verilog Projects
-
-Edit the [info.yaml](info.yaml) and uncomment the `source_files` and `top_module` properties, and change the value of `language` to "Verilog". Add your Verilog files to the `src` folder, and list them in the `source_files` property.
-
-The GitHub action will automatically build the ASIC files using [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/).
-
-## Enable GitHub actions to build the results page
-
-- [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
 
 ## Resources
 
