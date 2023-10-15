@@ -13,7 +13,7 @@ module debounce_wrapper(
         genvar i;                   // Declare a generate variable, this is used to index the for loop to quickly instantiate multiple modules #(BE CAREFUL, it is easy to make mistakes with generate statements)
         for (i = 0; i < 5; i = i + 1) begin: debounce_instances
             // Instantiate the debounce module
-            debounce #(50000000,10) generic_debounce (
+            debounce #(25000000,10) generic_debounce (
                 .clk(clk),              // Connect the clock signal to the debounce module
                 .button(buttons[i]),    // Connect the ith button to the ith debounce module
                 .reset_n(rst_n),        // Connect the reset signal to the debounce module

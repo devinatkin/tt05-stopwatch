@@ -3,7 +3,7 @@
 module tb_clock_divider;
 
     // Signals
-    logic clk_100MHz;
+    logic clk_25Mhz;
     logic rst_n;
     logic clk_1Hz;
     logic clk_1kHz;
@@ -21,21 +21,21 @@ module tb_clock_divider;
 
     // Instantiate the DUT (Device Under Test)
     clock_divider uut (
-        .clk_25MHz(clk_100MHz),
+        .clk_25MHz(clk_25Mhz),
         .rst_n(rst_n),
         .clk_1Hz(clk_1Hz),
         .clk_1kHz(clk_1kHz)
     );
 
-    // Clock generation for 100MHz (5ns period)
+    // Clock generation for 25MHz (20ns period)
     always begin
-        #5 clk_100MHz = ~clk_100MHz;
+        #20 clk_25Mhz = ~clk_25Mhz;
     end
 
 // Test procedure
 initial begin
     // Initialization
-    clk_100MHz = 0;
+    clk_25Mhz = 0;
     rst_n = 0;
 
     #52 rst_n = 1; // De-assert reset after a longer period to ensure all clocks are running
