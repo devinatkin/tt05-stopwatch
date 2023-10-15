@@ -72,6 +72,6 @@ module tb_debounce_wrapper;
             $display("Test Passed with no Errors");
         end
 
-        $stop;
+        $finish;
     end
 endmodule

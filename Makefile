@@ -24,7 +24,9 @@ all: test
 # The test target
 test: $(VVP_FILES)
 	@for test in $^ ; do \
-		vvp $$test ; \
+		echo "Starting $$test..."; \
+		time vvp $$test ; \
+		echo "Completed $$test."; \
 	done
 
 # Rule to build .vvp files
